@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { User } from '../../models/user';
+import { CharityListPage } from '../charity-list/charity-list';
 
 /**
  * Generated class for the ProfilePage page.
@@ -14,16 +16,21 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  public username: string;
-  public password: string;
+  public user: User;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
+    this.user = new User();
   }
 
   ionViewDidLoad() {
-    this.username = this.navParams.get("username");
-    this.password = this.navParams.get("password");
+    this.user.firstname = "Miki";
+    this.user.lastname = "von Ketelhodt";
+    this.user.email = this.navParams.get("username");
+    this.user.password = this.navParams.get("password");
+  }
+
+  navToCharityList() {
+    this.navCtrl.push(CharityListPage);
   }
 
 }
