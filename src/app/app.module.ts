@@ -8,13 +8,17 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
+import { CharityListPage } from '../pages/charity-list/charity-list';
+import { CharityProfilePage } from '../pages/charity-profile/charity-profile';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    ProfilePage
+    ProfilePage,
+    CharityListPage,
+    CharityProfilePage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,9 @@ import { ProfilePage } from '../pages/profile/profile';
     MyApp,
     HomePage,
     LoginPage,
-    ProfilePage
+    ProfilePage,
+    CharityListPage,
+    CharityProfilePage
   ],
   providers: [
     StatusBar,
