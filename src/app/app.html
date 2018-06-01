@@ -1,1 +1,28 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="mycontent">
+    <ion-content>
+        <ion-list no-lines>
+            <button menuClose ion-item>
+                <ion-icon name="pint" item-start></ion-icon>
+                Home
+            </button>
+            <button menuClose ion-item>
+                <ion-icon name="list-box" item-start></ion-icon>
+                My Table
+            </button>
+            <button menuClose ion-item>
+                <ion-icon name="wine" item-start></ion-icon>
+                Past Orders
+            </button>
+            <button menuClose ion-item>
+                <ion-icon name="card" item-start></ion-icon>
+                Cards
+            </button>
+            <button menuClose ion-item>
+                <ion-icon name="book" item-start></ion-icon>
+                Bookings
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
