@@ -18,6 +18,8 @@ export class CharityListPage {
 
   public charities: Array<Charity> = [];
 
+  private token: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     
     // Instantiate a new Charity instance for Rhinos
@@ -35,6 +37,10 @@ export class CharityListPage {
     // Add our 2 charity instances to our collection of charities
     this.charities.push(charity1);
     this.charities.push(charity2);
+
+    this.token = this.navParams.get("token");
+
+    console.log("clist token: ", this.token);
   }
 
   ionViewDidLoad() {

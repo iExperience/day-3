@@ -18,6 +18,8 @@ export class ProfilePage {
 
   public user: User;
 
+  private token: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.user = new User();
   }
@@ -25,8 +27,12 @@ export class ProfilePage {
   ionViewDidLoad() {
     this.user.firstname = "Miki";
     this.user.lastname = "von Ketelhodt";
-    this.user.email = this.navParams.get("username");
-    this.user.password = this.navParams.get("password");
+
+    //this.user.email = this.navParams.get("username");
+    //this.user.password = this.navParams.get("password");
+
+    this.token = localStorage.getItem("TOKEN"); //this.navParams.get("token");
+    console.log("profile token: ", this.token);
   }
 
   navToCharityList() {

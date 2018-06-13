@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Http, Headers } from "@angular/http";
 import { NavController, NavParams } from "ionic-angular";
 import { ProfilePage } from "../profile/profile";
+import { AuthService } from "../../auth.service";
 
 /**
  * Generated class for the LoginPage page.
@@ -20,8 +21,7 @@ export class LoginPage {
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams,
-    public http: Http
+    public authService: AuthService
   ) {}
 
   ionViewDidLoad() {
@@ -29,25 +29,15 @@ export class LoginPage {
   }
 
   login() {
-    this.http
-      .post("http://localhost:3000/login", {
-        email: this.username,
-        password: this.password
-      })
-      .subscribe(
-        result => {
-          console.log(result);
+    let callback = (err) => {
+      if (err) {
+        // TODO: display error
+        return;
+      }
 
-          // Our username and password (on this) should have data from the user
-          this.navCtrl.push(ProfilePage, {
-            username: this.username,
-            password: this.password
-          });
-        },
+      this.navCtrl.push(ProfilePage);
+    }
 
-        error => {
-          console.log(error);
-        }
-      );
+    this.authService.login(this.username, this.password, callback);
   }
 }
